@@ -1,0 +1,199 @@
+
+'.source.python':
+    'if':
+        'prefix': 'if'
+        'body': 'if ${1:cond}\n    ${2:pass}'
+    'else':
+        'prefix': 'else'
+        'body': 'else:\n    ${1:pass}'
+    'else if':
+        'prefix': 'elif'
+        'body': 'elif ${1:cond}:\n    ${2:pass}'
+    'if else':
+        'prefix': 'ifelse'
+        'body': 'if ${1:cond}\n    ${2:pass}\nelse:\n    ${3:pass}'
+    'if else if':
+        'prefix': 'ifelif'
+        'body': 'if ${1:cond1}:\n    ${2:pass}\nelif ${3:cond2}:\n    ${4:pass}\nelse:\n    ${5:pass}'
+    'print debug':
+        'prefix': 'pridbg'
+        'body': 'print(${1:message}) #<<<<<'
+    'logf':
+        'prefix': 'logf'
+        'body': 'log(${1:value}) #<<<<<'
+    'debug':
+        'prefix': 'debug'
+        'body': 'debug(${1:value}) #<<<<<'
+    'pdb':
+        'prefix': 'pdb'
+        'body': 'import pdb; pdb.set_trace() #<<<<<'
+
+#===============================================================================
+'.source.php':
+    'try':
+        'prefix': 'try'
+        'body': """
+            try
+            {
+                $1
+            }
+            catch(${2:\\\\Exception $e})
+            {
+                $3
+            }
+            """
+    'if, else':
+        'prefix': 'if'
+        'body': """
+            if(${1:/* condition */})
+            {
+                $2
+            }
+            else
+            {
+                $3
+            }
+            """
+    'ifelse':
+        'prefix': 'ife'
+        'body': """
+            if(${1:/* condition 1 */})
+            {
+                $2
+            }
+            else if(${3:/* condition 2 */})
+            {
+                $4
+            }
+            else
+            {
+                $5
+            }
+            """
+    'else':
+        'prefix': 'else'
+        'body': """
+            else
+            {
+                ${1:/* code */}
+            }
+            """
+
+    'var_dump':
+        'prefix': 'vardd'
+        'body': 'var_dump(${1:/*var*/});die(); //<<<<<'
+
+    'this->attr':
+        'prefix': 'thisa'
+        'body': '$this->${1:/*var*/} = \\$${1:/*var*/};'
+
+    'this->attr alias':
+        'prefix': '$thisa'
+        'body': '$this->${1:/*var*/} = \\$${1:/*var*/};'
+
+#===============================================================================
+'.source.c, .source.cpp, .source.cs, .source.js, .source.java':
+    'if':
+        'prefix': 'if'
+        'body': """
+            if(${1:/* condition */})
+            {
+                ${2:/* code */}
+            }
+            """
+    'if, else':
+        'prefix': 'ife'
+        'body': """
+            if(${1:/* condition */})
+            {
+                ${2:/* code */}
+            }
+            else
+            {
+                ${3:/* code */}
+            }
+            """
+    'if else if':
+        'prefix': 'ifei'
+        'body': """
+            if(${1:/* condition 1 */})
+            {
+                ${2:/* code */}
+            }
+            else if(${3:/* condition 2 */})
+            {
+                ${4:/* code */}
+            }
+            else
+            {
+                ${5:/* code */}
+            }
+            """
+    'else':
+        'prefix': 'else'
+        'body': """
+            else
+            {
+                ${1: /* code */}
+            }
+            """
+
+#===============================================================================
+'.source.cpp, .source.cs, .source.js, .source.java':
+    'try':
+        'prefix': 'try'
+        'body': """
+            try
+            {
+                $1
+            }
+            catch(${2:Exception $e})
+            {
+                $3
+            }
+            """
+
+'.source.js':
+    'function':
+        'prefix': 'fun'
+        'body': """
+            function ${1:functionName}(${2:/* params */})
+            {
+                ${3:/* code */}
+            }
+            """
+
+    'console log':
+        'prefix': 'consl'
+        'body': 'console.log(${1:expr}); // <<<<<'
+
+    'debugger':
+        'prefix': 'debug'
+        'body': 'debugger; // <<<<<'
+
+
+#===============================================================================
+'.text.html.basic':
+    'django block':
+        'prefix': 'djblock'
+        'body': '{% block ${1:blockTitle} %}${2:blockContents}{% endblock ${1:blockTitle} %}'
+
+    'django tag':
+        'prefix': 'djtag'
+        'body': """
+            {% ${1:tagName} ${2:attributes}%}
+                ${3:blockContents}
+            {% end${1:tagName} %}
+            """
+
+    'django simple tag':
+        'prefix': 'djstag'
+        'body': '{% ${1:tagName} ${2:attributes} %}'
+
+    'django comment':
+        'prefix': 'comment'
+        'body': """
+            {% comment %}
+                ${1:comment}
+            {% endcomment %}
+            """

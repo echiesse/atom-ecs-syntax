@@ -1,0 +1,67 @@
+.syntax--constant{
+    &.syntax--language.syntax--python{
+        color: @dark-cyan;
+        font-weight: bold;
+    }
+
+    //&.syntax--other.syntax--caps.syntax--python{
+    //    color: @dark-cyan2;
+    //    font-weight: bold;
+    //}
+}
+
+.syntax--entity.syntax--name.syntax--function.syntax--decorator{
+    color: @type2-color;
+    font-weight: bold;
+}
+
+
+.syntax--keyword{
+    &.syntax--operator.syntax--logical.syntax--python{
+        color: @keyword-color;
+        font-weight: bold;
+    }
+}
+
+.syntax--punctuation.syntax--definition.syntax--decorator.syntax--python{
+    //color: @type2-color;
+    //font-weight: bold;
+}
+
+
+// Double triple string
+.syntax--string{
+    &.syntax--quoted.syntax--double.syntax--block.syntax--sql.syntax--python{
+        color: @doc-color;
+    }
+}
+
+.syntax--support{
+    &.syntax--variable.syntax--magic.syntax--python{
+        color: @type2-color;
+        font-weight: bold;
+    }
+
+    &.syntax--type.syntax--python{
+        color: @type2-color;
+        font-weight: bold;
+    }
+}
+
+.syntax--variable{
+    &.syntax--parameter{
+        &.syntax--function-call.syntax--python{
+            color: @syntax-text-color;
+        }
+        &.syntax--function.syntax--language.syntax--python{
+            font-weight: normal;
+        }
+    }
+}
+
+
+// F-Strings:
+.syntax--meta.syntax--fstring.syntax--python,
+.syntax--constant.syntax--character.syntax--format.syntax--placeholder.syntax--other.syntax--python{
+    color: @purple;
+}

@@ -1,0 +1,35 @@
+
+@lua-user-function-color: @black;
+
+.syntax--constant.syntax--language.syntax--lua
+{
+    color: @dark-cyan;
+    font-weight: bold;
+}
+
+.syntax--entity
+{
+    &.syntax--name.syntax--function.syntax--lua{
+        color: @lua-user-function-color;
+        //font-weight: bold;
+    }
+}
+
+.syntax--support{
+    &.syntax--function.syntax--lua{
+        color: @dark-cyan2;
+        font-weight: bold;
+    }
+
+    &.syntax--function.syntax--library.syntax--lua{
+        color: @navy;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    &.syntax--function.syntax--any-method.syntax--lua{
+        color: @lua-user-function-color;
+        font-weight: normal;
+    }
+
+}
